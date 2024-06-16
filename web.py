@@ -155,7 +155,7 @@ def page2():
 
 def page3():
     st.title("Video de la web")
-    st.video("https://media.upv.es/player/?id=25b999a0-2c24-11ef-8cdb-cb4d23401c8d")
+    st.video("./VD_trabajo_academico.mp4")
 
 # Diccionario para la navegación entre páginas 
 pages = {
