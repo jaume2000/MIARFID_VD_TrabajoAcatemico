@@ -156,7 +156,7 @@ def page2():
 
 def page3():
     st.title("Video de la web")
-    st.video("https://www.youtube.com/watch?v=9bZkp7q19f0")
+    st.video("https://www.youtube.com/watch?v=eMlx5fFNoYc")
 
 # Diccionario para la navegación entre páginas 
 pages = {
