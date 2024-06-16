@@ -24,7 +24,6 @@ def load_shapefile():
 data = load_data()
 shapefile = load_shapefile()
 
-# Función para la primera página
 def page1():
     st.title("Datos utilizados:")
     
@@ -72,23 +71,23 @@ def page1():
         st.header("Evolución del Producto Interno Bruto (PIB) en billones de dólares")
         st.line_chart(world_pib)
 
-# Función para la segunda página
 def page2():
     st.title("Gráficos")
 
     st.header("Mapa con Folium")
+
+    # Seleccionar la información deseada
     variable = st.selectbox("Selecciona el tipo de dato", options=["pop", "cpi", "income", "pib"], format_func=lambda x: {
         "pop": "Población",
         "cpi": "Índice de Precios al Consumidor (CPI)",
         "income": "Ingreso per cápita",
         "pib": "Producto Interno Bruto (PIB)"
     }[x])
-    
 
+
+    # Seleccionar el año
     year = str(st.slider("Selecciona el año", min_value=1960, max_value=2022, value=2022))
 
-
-    # Mostrar el mapa en Streamlit
     if variable == 'income':
         st.header(f"Mapa de Coropletas del Ingreso Nacional Bruto per cápita en {year}")
         label = "Ingreso Nacional Bruto per cápita"
@@ -139,12 +138,12 @@ def page2():
     merged.set_index('Country Name', inplace=True)
     with left:
         st.subheader(f"Los {n_countries} países con mayor valor")
-        # Mostrar los 5 países con mayor valor con un grafico de barras
+        # Mostrar los N países con mayor valor con un grafico de barras
         top = merged.nlargest(n_countries, year)
         st.bar_chart(top[year])
     with right:
         st.subheader(f"Los {n_countries} países con menor valor")
-        # Mostrar los 5 países con menor valor con un grafico de barras
+        # Mostrar los N países con menor valor con un grafico de barras
         bottom = merged.nsmallest(n_countries, year)
         st.bar_chart(bottom[year])
     
@@ -156,7 +155,7 @@ def page2():
 
 def page3():
     st.title("Video de la web")
-    st.video("https://www.youtube.com/watch?v=eMlx5fFNoYc")
+    st.video("https://media.upv.es/player/?id=25b999a0-2c24-11ef-8cdb-cb4d23401c8d")
 
 # Diccionario para la navegación entre páginas 
 pages = {
